@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayur Makwana | Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-left: #f3f4f6;
+        --bg-right: #0f172a;
+        --text-dark: #111827;
+        --text-gray: #4b5563;
+        --accent: #2563eb; /* A nice professional blue */
+        --white: #ffffff;
+        --transition: all 0.3s ease;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    /* ===== LAYOUT ===== */
+    .wrapper {
+        display: flex;
+        min-height: 100vh;
+        width: 100%;
+    }
+
+    /* ===== LEFT SIDE ===== */
+    .left-section {
+        width: 55%;
+        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        clip-path: polygon(0 0, 90% 0, 75% 100%, 0 100%);
+        padding: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 2; /* Ensures it sits above if needed */
+    }
+
+    .brand {
+        position: absolute;
+        top: 40px;
+        left: 80px;
+        font-weight: 800;
+        font-size: 24px;
+        color: var(--text-dark);
+        letter-spacing: -1px;
+    }
+
+    .content-box {
+        max-width: 600px;
+        animation: fadeUp 1s ease-out;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    h1 {
+        font-size: 64px;
+        line-height: 1.1;
+        margin-bottom: 16px;
+        color: var(--text-dark);
+        font-weight: 800;
+    }
+
+    .description {
+        font-size: 18px;
+        color: var(--text-gray);
+        line-height: 1.6;
+        max-width: 90%;
+    }
+
+    /* ===== MAIN CTAs (View Projects, Download Resume) ===== */
+    .cta-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .primary-cta, .secondary-cta {
+        display: inline-flex;
+        align-items: center;
+        padding: 14px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: var(--transition);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        font-size: 15px;
+    }
+
+    .primary-cta {
+        background: var(--accent);
+        color: var(--white);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .primary-cta:hover {
+        background: #1d4ed8; /* Darker accent */
+        transform: translateY(-3px);
+    }
+
+    .secondary-cta {
+        background: transparent;
+        border: 2px solid var(--text-dark);
+        color: var(--text-dark);
+        box-shadow: none;
+    }
+
+    .secondary-cta:hover {
+        background: var(--text-dark);
+        color: var(--white);
+        transform: translateY(-3px);
+    }
+
+
+    /* ===== SOCIAL ICONS ===== */
+    .socials {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.05);
+        transition: var(--transition);
+    }
+
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--text-dark);
+        transition: var(--transition);
+    }
+
+    .social-icon:hover {
+        background: var(--text-dark);
+        transform: translateY(-3px);
+    }
+
+    .social-icon:hover svg {
+        fill: var(--white);
+    }
+
+    /* ===== RIGHT SIDE ===== */
+    .right-section {
+        width: 45%;
+        background: var(--bg-right);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Pattern overlay for texture */
+        background-image: radial-gradient(var(--text-gray) 1px, transparent 1px);
+        background-size: 40px 40px; 
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+        position: absolute;
+        top: 40px;
+        right: 60px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        z-index: 10;
+    }
+
+    .nav a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        transition: var(--transition);
+        padding: 10px 20px;
+        border-radius: 50px;
+        /* Default state: transparent */
+        background: transparent; 
+        border: none;
+        box-shadow: none;
+    }
+
+    /* Hover effect for ALL links: Gives them a background and switches text color to dark */
+    .nav a:hover {
+        background: var(--white);
+        color: var(--text-dark); /* FIX: This ensures dark text on white background */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* The previously conflicting CSS block for .contact-btn has been removed for a cleaner fix. */
+
+    /* ===== IMAGE PLACEHOLDER ===== */
+    .profile-container {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        aspect-ratio: 4/5;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        margin-right: 15%; /* Pull it slightly left to bridge the gap */
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        animation: fadeLeft 1s ease-out 0.3s backwards;
+    }
+
+    .profile-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Default state: Black and White */
+        filter: grayscale(100%); 
+        /* Updated transition to include filter and transform */
+        transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .profile-container:hover img {
+        transform: scale(1.05);
+        /* Hover state: Color */
+        filter: grayscale(0);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeLeft {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width: 1024px) {
+        .left-section {
+            padding: 50px;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+        }
+        h1 { font-size: 48px; }
+        .profile-container { margin-right: 50px; }
+    }
+
+    @media(max-width: 900px) {
+        .wrapper {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .left-section, .right-section {
+            width: 100%;
+            height: auto;
+            clip-path: none;
+        }
+
+        .left-section {
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .brand {
+            position: static;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .content-box { margin: 0 auto; }
+        
+        .socials { justify-content: center; }
+        
+        .cta-group {
+            justify-content: center;
+            flex-direction: column; /* Stack buttons vertically on small screens */
+            gap: 15px;
+        }
+
+        .primary-cta, .secondary-cta {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+
+        .right-section {
+            padding: 100px 20px 60px 20px; /* Top padding for Nav */
+            min-height: 500px;
+        }
+
+        .nav {
+            top: 30px;
+            right: 0;
+            width: 100%;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav a { font-size: 14px; }
+        
+        .profile-container {
+            margin: 0;
+            max-width: 350px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<main class="wrapper">
+
+    <!-- LEFT SIDE: INFO -->
+    <section class="left-section">
+        <div class="brand">MM.</div>
+
+        <div class="content-box">
+            <h4 class="subtitle">Hi, I am</h4>
+            <h1>Mayur<br>Makwana</h1>
+            <p class="description">
+                Data Analyst & Data Science Enthusiast.<br>
+                Transforming complex data into actionable insights and visual stories.
+            </p>
+            
+            <!-- NEW CALL-TO-ACTION BUTTONS -->
+            <div class="cta-group">
+                <a href="projects.html" class="primary-cta">View Projects</a>
+                <a href="resume.pdf" download class="secondary-cta">Download Resume</a>
+            </div>
+
+            <!-- SOCIAL ICONS -->
+            <div class="socials">
+                
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/mayur-makwana-8761862a8" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <svg viewBox="0 0 448 512">
+                        <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 01107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+                    </svg>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/mayurofficial-tech" target="_blank" class="social-icon" aria-label="GitHub">
+                    <svg viewBox="0 0 496 512">
+                        <path d="M248 8C111 8 0 119 0 256c0 110.5 71.5 204.3 170.9 237.5 12.5 2.3 17.1-5.4 17.1-12.1 0-6.1-.2-22.1-.3-43.4-69.5 15.1-84.1-33.5-84.1-33.5-11.4-28.8-27.8-36.5-27.8-36.5-22.7-15.5 1.7-15.2 1.7-15.2 25.1 1.8 38.3 25.8 38.3 25.8 22.3 38.2 58.5 27.2 72.8 20.8 2.3-16.1 8.7-27.2 15.8-33.5-55.5-6.3-113.9-27.8-113.9-123.5 0-27.3 9.8-49.6 25.8-67.1-2.6-6.3-11.2-31.6 2.4-65.9 0 0 21.1-6.8 69.1 25.7a239.2 239.2 0 01125.8 0c48-32.5 69.1-25.7 69.1-25.7 13.6 34.3 5 59.6 2.4 65.9 16 17.5 25.8 39.8 25.8 67.1 0 95.9-58.5 117.1-114.2 123.3 8.9 7.7 16.8 22.9 16.8 46.2 0 33.4-.3 60.4-.3 68.6 0 6.8 4.6 14.7 17.3 12.1C424.5 460.2 496 366.5 496 256 496 119 385 8 248 8z"/>
+                    </svg>
+                </a>
+
+                <!-- Kaggle / Other -->
+                <a href="#" target="_blank" class="social-icon" aria-label="Kaggle">
+                    <svg viewBox="0 0 320 512">
+                        <path d="M80 0h48v288l144-144h64L176 320l176 192h-64L128 352v160H80z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RIGHT SIDE: IMAGE & NAV -->
+    <section class="right-section">
+        
+        <!-- NAV -->
+        <nav class="nav">
+            <a href="about.html">About me</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="contact-btn">Contact me</a>
+        </nav>
+
+        <!-- IMAGE CONTAINER -->
+        <div class="profile-container">
+            <!-- 
+               NOTE: Since I cannot access your local "images/me.png", 
+               I have added a placeholder background. 
+               Once you put your image back, it will cover this.
+            -->
+            <img src="images/me.png" 
+                 alt="Mayur Makwana Profile" 
+                 onerror="this.src='https://placehold.co/600x800/222/FFF?text=MM'">
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

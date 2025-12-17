@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me | Mayur Makwana</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-main: #f3f4f6;
+        --text-dark: #111827;
+        --text-gray: #4b5563;
+        --accent: #2563eb; 
+        --white: #ffffff;
+        --linkedin-blue: #0077B5;
+        --transition: all 0.3s ease;
+    }
+    
+    * {
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: var(--bg-main);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
+    }
+
+    /* Page Header */
+    .page-header {
+        display: inline-block;
+        border: 2px solid var(--text-dark);
+        padding: 10px 30px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        font-size: 16px;
+        border-radius: 50px;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        color: var(--text-dark);
+    }
+    
+    /* Content Card Styling */
+    .about-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 40px 30px;
+        margin-bottom: 40px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-card h2 {
+        font-size: 32px;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+        font-weight: 800;
+    }
+    
+    .about-card h3 {
+        font-size: 18px;
+        color: var(--accent);
+        margin-bottom: 25px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    /* Styling for the main description paragraphs */
+    .about-card p { 
+        font-size: 17px;
+        color: var(--text-gray);
+        line-height: 1.75;
+        margin: 15px auto;
+        max-width: 100%;
+        font-weight: 400;
+        text-align: center; /* Center align for concise text */
+    }
+
+    /* Skills Section Styling */
+    .skills-section {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid #e5e7eb; /* Light separator */
+    }
+
+    .skills-section h4 {
+        font-size: 20px;
+        color: var(--text-dark);
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px; /* Space between skill badges */
+    }
+
+    /* Updated Skill Badge Style for icons/symbols */
+    .skill-badge {
+        background-color: var(--bg-main);
+        color: var(--text-dark);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+        display: flex; /* For aligning icon and text */
+        align-items: center;
+    }
+
+    .skill-badge:hover {
+        background-color: #d1d5db;
+    }
+
+    .skill-icon {
+        font-size: 18px; /* Size of the emoji/icon */
+        margin-right: 8px;
+    }
+    
+    /* CTA Button Styling */
+    .social-link-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 25px;
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: var(--transition);
+        font-size: 15px;
+        background: var(--text-dark); 
+        margin-top: 40px; /* Increased top margin for separation */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-link-btn:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+    }
+    
+    .social-link-btn svg {
+        fill: var(--white);
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+    }
+
+    /* Back to Home Link */
+    .back-home {
+        margin-top: 50px;
+        color: var(--text-gray);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        padding: 10px 0;
+    }
+
+    .back-home:hover {
+        color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+        .page-header {
+            font-size: 14px;
+            padding: 8px 20px;
+        }
+        .about-card {
+            padding: 30px 20px;
+        }
+        .social-link-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="page-header">WHO I AM</div>
+
+    <div class="about-card">
+        <h2>Mayur Makwana</h2>
+        <h3>Aspiring Data Analyst</h3>
+
+        <!-- Concise 'About Me' content based on resume summary -->
+        <p>
+            I am an aspiring Data Analyst and Data Science professional with a strong foundation in **Python** and **SQL**. I am highly motivated to leverage analytical thinking and problem-solving skills to tackle real-world, data-driven challenges and generate actionable insights.
+        </p>
+        
+        <!-- Skills Section - Now using Symbols/Emojis -->
+        <div class="skills-section">
+            <h4>Technical & Professional Skills</h4>
+            <div class="skills-grid">
+                <!-- Technical Skills -->
+                <span class="skill-badge"><span class="skill-icon">🐍</span>Python (Pandas, NumPy, Matplotlib, Seaborn)</span>
+                <span class="skill-badge"><span class="skill-icon">🗄️</span>SQL (MySQL)</span>
+                <span class="skill-badge"><span class="skill-icon">🧼</span>Data Cleaning & EDA</span>
+                <span class="skill-badge"><span class="skill-icon">📊</span>Data Visualization</span>
+                <span class="skill-badge"><span class="skill-icon">📈</span>Statistics</span>
+                <span class="skill-badge"><span class="skill-icon">📋</span>Excel</span>
+                <span class="skill-badge"><span class="skill-icon">📓</span>Jupyter Notebook</span>
+                
+                <!-- Soft Skills -->
+                <span class="skill-badge"><span class="skill-icon">🧠</span>Analytical Thinking</span>
+                <span class="skill-badge"><span class="skill-icon">💡</span>Problem-Solving</span>
+                <span class="skill-badge"><span class="skill-icon">🔍</span>Attention to Detail</span>
+                <span class="skill-badge"><span class="skill-icon">🗣️</span>Communication</span>
+            </div>
+        </div>
+        
+        <!-- Added a call-to-action to LinkedIn -->
+        <a href="https://www.linkedin.com/in/mayur-makwana-8761862a8" target="_blank" class="social-link-btn">
+             <!-- LinkedIn Icon SVG -->
+            <svg viewBox="0 0 448 512">
+                <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 01107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+            </svg>
+            Connect & See My Projects
+        </a>
+    </div>
+
+    <a href="index.html" class="back-home">← Back to Home</a>
+</div>
+
+</body>
+</html>
