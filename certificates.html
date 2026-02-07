@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Certifications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        .pill-header {
+            border: 2px solid #0f172a;
+            border-radius: 9999px;
+            padding: 8px 24px;
+            display: inline-block;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            color: #0f172a;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            max-width: 800px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e1;
+        }
+
+        .btn-verify {
+            background-color: #0f172a;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+        }
+
+        .competency-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .check-icon {
+            color: #3b82f6;
+            margin-top: 5px;
+            font-size: 0.875rem;
+        }
+
+        .org-badge {
+            background-color: #0f172a;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        /* Modal Styles */
+        #certModal {
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        
+        #certModal.active .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="py-16 px-6">
+
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+        <div class="pill-header bg-white">
+            Professional Certifications
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="space-y-12">
+        
+        <!-- Certification Card 1: Deloitte -->
+        <section class="cert-card overflow-hidden" onclick="openModal('Data Analytics Job Simulation', 'deloitte.jpg')">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-600 leading-tight">
+                        Data Analytics Job Simulation
+                    </h2>
+                    
+                    <div class="flex items-center gap-2">
+                        <span class="org-badge">Deloitte</span>
+                    </div>
+
+                    <div class="mt-6 space-y-6">
+                        <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+                            Key Competencies:
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="competency-item">
+                                <i class="fas fa-check check-icon"></i>
+                                <span>Completed practical data analysis tasks within a professional Deloitte simulation environment.</span>
+                            </div>
+                            <div class="competency-item">
+                                <i class="fas fa-check check-icon"></i>
+                                <span>Gained specialized knowledge in Forensic Technology application for data auditing.</span>
+                            </div>
+                            <div class="competency-item">
+                                <i class="fas fa-check check-icon"></i>
+                                <span>Validated skills in professional reporting and enterprise-level data processing.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <span class="btn-verify shadow-lg shadow-slate-200">
+                            <i class="far fa-check-circle"></i>
+                            Verify
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Card 2: AI Tools (be10x) -->
+        <section class="cert-card overflow-hidden" onclick="openModal('AI Tools and ChatGPT Workshop', 'be10x.jpg')">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-600 leading-tight">
+                        AI Tools and ChatGPT Mastery
+                    </h2>
+                    
+                    <div class="flex items-center gap-2">
+                        <span class="org-badge">be10x</span>
+                    </div>
+
+                    <div class="mt-6 space-y-6">
+                        <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+                            Key Competencies:
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="competency-item">
+                                <i class="fas fa-check check-icon"></i>
+                                <span>Leveraged AI for rapid development: creating professional presentations in under 5 minutes.</span>
+                            </div>
+                            <div class="competency-item">
+                                <i class="fas fa-check check-icon"></i>
+                                <span>Streamlined analytical workflows, processing complex data sets in under 30 minutes using AI.</span>
+                            </div>
+                            <div class="competency-item">
+                                <i class="fas fa-check check-icon"></i>
+                                <span>Mastered AI-assisted coding and debugging to reduce development time by 10x.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <span class="btn-verify shadow-lg shadow-slate-200">
+                            <i class="far fa-check-circle"></i>
+                            Verify: Nov 2nd, 2025
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back Navigation -->
+        <div class="text-center pt-12">
+            <a href="index.html" class="text-slate-500 hover:text-slate-900 font-semibold transition inline-flex items-center gap-3">
+                <span class="text-xl">←</span> Back to Home
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Modal for Preview -->
+    <div id="certModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none bg-slate-900/90 backdrop-blur-sm">
+        <div class="modal-content relative bg-white rounded-2xl w-full max-w-4xl overflow-hidden shadow-2xl">
+            <!-- Modal Header -->
+            <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                <h3 id="modalTitle" class="font-bold text-slate-800 truncate pr-4">Certificate Preview</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 transition p-2">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Certificate Image Area -->
+            <div class="p-6 bg-slate-200 flex items-center justify-center min-h-[300px] max-h-[70vh] overflow-auto">
+                <img id="modalImg" src="" alt="Certificate" class="shadow-lg rounded-sm max-w-full h-auto border border-white">
+            </div>
+
+            <!-- Modal Footer (Download/Close) -->
+            <div class="p-6 flex flex-col sm:flex-row gap-4 justify-end border-t border-slate-100">
+                <button onclick="closeModal()" class="px-8 py-3 font-semibold text-slate-600 border border-slate-200 rounded-full hover:bg-slate-50 transition">
+                    Close Preview
+                </button>
+                <a id="downloadBtn" href="#" download class="px-8 py-3 font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition inline-flex items-center justify-center gap-2 shadow-md">
+                    <i class="fas fa-download"></i>
+                    Download Certificate
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-24 text-center text-slate-400 text-sm pb-12">
+        <p>Makwana Mayur. All professional credentials verified.</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('certModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        function openModal(title, imgUrl) {
+            modalTitle.innerText = title;
+            modalImg.src = imgUrl;
+            downloadBtn.href = imgUrl;
+            
+            modal.classList.add('active');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('active', 'opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+
+        // Close on clicking outside the white box
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
