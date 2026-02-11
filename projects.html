@@ -1,272 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects | Mayur Makwana</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Mayur Makwana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
-<style>
-    :root {
-        --bg-main: #f3f4f6;
-        --text-dark: #111827;
-        --text-gray: #4b5563;
-        --accent: #2563eb; 
-        --white: #ffffff;
-        --transition: all 0.3s ease;
-    }
-    
-    * {
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-    }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-    body {
-        margin: 0;
-        height: 100vh; /* Set height to viewport height */
-        background-color: var(--bg-main);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden; /* Prevent the whole body from scrolling */
-    }
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
 
-    .container {
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        height: 100%; /* Take full height */
-        padding: 0 20px;
-    }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: #3b82f6;
+        }
 
-    /* Fixed Header */
-    .header-wrapper {
-        padding: 40px 0 20px 0;
-        text-align: center;
-        flex-shrink: 0; /* Prevents header from shrinking */
-    }
+        .btn-github {
+            background-color: #0f172a;
+            transition: all 0.3s ease;
+        }
 
-    .page-header {
-        display: inline-block;
-        border: 2px solid var(--text-dark);
-        padding: 10px 30px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        font-size: 16px;
-        border-radius: 50px;
-        text-transform: uppercase;
-        color: var(--text-dark);
-        background: var(--bg-main);
-    }
+        .btn-github:hover {
+            background-color: #2563eb;
+            transform: scale(1.02);
+        }
 
-    /* SCROLLABLE AREA */
-    .projects-scroll-area {
-        flex-grow: 1; /* Take up remaining space */
-        overflow-y: auto; /* Enable vertical scrolling */
-        padding: 20px 10px;
-        scrollbar-width: thin; /* For Firefox */
-    }
+        .tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            display: inline-block;
+            white-space: nowrap;
+        }
 
-    /* Custom Scrollbar for Chrome/Safari */
-    .projects-scroll-area::-webkit-scrollbar {
-        width: 6px;
-    }
-    .projects-scroll-area::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 10px;
-    }
+        .section-header-pill {
+            display: inline-block;
+            border: 2px solid #0f172a;
+            padding: 8px 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            color: #0f172a;
+        }
 
-    /* Project Card Styling */
-    .project-card {
-        background: var(--white);
-        border-radius: 12px;
-        padding: 30px;
-        margin-bottom: 30px;
-        text-align: left;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease;
-    }
+        .check-icon {
+            color: #10b981;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
 
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-card h2 {
-        font-size: 28px;
-        color: var(--accent);
-        margin-bottom: 10px;
-        font-weight: 800;
-    }
-
-    .project-stack-box {
-        display: inline-block;
-        background: var(--text-dark);
-        color: var(--white);
-        padding: 5px 15px;
-        border-radius: 5px;
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 25px;
-    }
-
-    .project-card h3 {
-        font-size: 18px;
-        color: var(--text-dark);
-        margin-top: 0;
-        margin-bottom: 15px;
-        font-weight: 700;
-    }
-
-    .project-card ul {
-        list-style: none;
-        padding-left: 0;
-        margin-bottom: 30px;
-    }
-
-    .project-card li {
-        color: var(--text-gray);
-        margin-bottom: 10px;
-        padding-left: 20px;
-        position: relative;
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    .project-card li::before {
-        content: '✓';
-        color: var(--accent);
-        font-weight: 700;
-        position: absolute;
-        left: 0;
-    }
-
-    .github-link {
-        display: inline-flex;
-        align-items: center;
-        padding: 10px 25px;
-        background: var(--text-dark);
-        color: var(--white);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        transition: var(--transition);
-        font-size: 15px;
-    }
-
-    .github-link:hover {
-        background: var(--accent);
-    }
-
-    .github-link svg {
-        fill: var(--white);
-        width: 18px;
-        height: 18px;
-        margin-right: 8px;
-    }
-
-    /* Fixed Bottom Footer */
-    .footer-wrapper {
-        padding: 20px 0 40px 0;
-        text-align: center;
-        flex-shrink: 0;
-    }
-
-    .back-home {
-        color: var(--text-gray);
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-    }
-
-    .back-home:hover {
-        color: var(--accent);
-    }
-
-    @media (max-width: 600px) {
-        .project-card h2 { font-size: 24px; }
-        .github-link { width: 100%; justify-content: center; }
-    }
-</style>
+        /* Custom Scrollbar */
+        .scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
 </head>
+<body class="antialiased">
 
-<body>
-
-<div class="container">
-    <div class="header-wrapper">
-        <div class="page-header">DATA ANALYSIS PROJECTS</div>
-    </div>
-
-    <div class="projects-scroll-area">
-        
-        <div class="project-card">
-            <h2>Titanic Dataset Cleaning & Analysis</h2>
-            <div class="project-stack-box">Python, Pandas, NumPy</div>
-            <h3>Project Description:</h3>
-            <ul>
-                <li>Cleaned and preprocessed raw data using Pandas and NumPy.</li>
-                <li>Handled missing values and corrected data types.</li>
-                <li>Performed exploratory data analysis to identify survival trends.</li>
-            </ul>
-            <a href="https://github.com/mayurofficial-tech/titanic-data-analysis" class="github-link">
-                <svg viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256c0 110.5 71.5 204.3 170.9 237.5 12.5 2.3 17.1-5.4 17.1-12.1 0-6.1-.2-22.1-.3-43.4-69.5 15.1-84.1-33.5-84.1-33.5-11.4-28.8-27.8-36.5-27.8-36.5-22.7-15.5 1.7-15.2 1.7-15.2 25.1 1.8 38.3 25.8 38.3 25.8 22.3 38.2 58.5 27.2 72.8 20.8 2.3-16.1 8.7-27.2 15.8-33.5-55.5-6.3-113.9-27.8-113.9-123.5 0-27.3 9.8-49.6 25.8-67.1-2.6-6.3-11.2-31.6 2.4-65.9 0 0 21.1-6.8 69.1 25.7a239.2 239.2 0 01125.8 0c48-32.5 69.1-25.7 69.1-25.7 13.6 34.3 5 59.6 2.4 65.9 16 17.5 25.8 39.8 25.8 67.1 0 95.9-58.5 117.1-114.2 123.3 8.9 7.7 16.8 22.9 16.8 46.2 0 33.4-.3 60.4-.3 68.6 0 6.8 4.6 14.7 17.3 12.1C424.5 460.2 496 366.5 496 256 496 119 385 8 248 8z"/></svg>
-                View on GitHub
-            </a>
+    <!-- Fixed Header -->
+    <header class="w-full pt-10 pb-6 text-center flex-shrink-0 bg-slate-50/80 backdrop-blur-md z-10">
+        <div class="section-header-pill">
+            Data Analysis Projects
         </div>
-         <div class="project-card">
-            <h2>Retail Business Sales Analysis (Excel)</h2>
-            <div class="project-stack-box">Microsoft Excel, Pivot Tables, Dashboards</div>
-            <h3>Project Description:</h3>
-            <ul>
-                <li>Performed end-to-end retail sales data analysis using advanced Excel techniques.</li>
-                <li>Built interactive dashboards using Pivot Tables and dynamic charts.</li>
-                <li>Conducted regression and what-if analysis to support business decision-making.</li>
-            </ul>
-            <a href="https://github.com/mayurofficial-tech/Retail-Business-Sales-Analysis-Excel" class="github-link">
-                View on GitHub
-            </a>
-        </div>
+    </header>
 
-        <div class="project-card">
-            <h2>BigBasket Product Analytics Dashboard</h2>
-            <div class="project-stack-box">Microsoft Excel, Pivot Tables, Dashboards</div>
-            <h3>Project Description:</h3>
-            <ul>
-                <li>Excel dashboard with pivots, KPIs, slicers</li>
-                <li>Data cleaning using Python mathod.</li>
-                <li>Insights on pricing, discount, ratings</li>
-            </ul>
-            <a href="https://github.com/mayurofficial-tech/bigbasket-product-analytics-dashboard" class="github-link">
-                <svg viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256c0 110.5 71.5 204.3 170.9 237.5 12.5 2.3 17.1-5.4 17.1-12.1 0-6.1-.2-22.1-.3-43.4-69.5 15.1-84.1-33.5-84.1-33.5-11.4-28.8-27.8-36.5-27.8-36.5-22.7-15.5 1.7-15.2 1.7-15.2 25.1 1.8 38.3 25.8 38.3 25.8 22.3 38.2 58.5 27.2 72.8 20.8 2.3-16.1 8.7-27.2 15.8-33.5-55.5-6.3-113.9-27.8-113.9-123.5 0-27.3 9.8-49.6 25.8-67.1-2.6-6.3-11.2-31.6 2.4-65.9 0 0 21.1-6.8 69.1 25.7a239.2 239.2 0 01125.8 0c48-32.5 69.1-25.7 69.1-25.7 13.6 34.3 5 59.6 2.4 65.9 16 17.5 25.8 39.8 25.8 67.1 0 95.9-58.5 117.1-114.2 123.3 8.9 7.7 16.8 22.9 16.8 46.2 0 33.4-.3 60.4-.3 68.6 0 6.8 4.6 14.7 17.3 12.1C424.5 460.2 496 366.5 496 256 496 119 385 8 248 8z"/></svg>
-                View on GitHub
-            </a>
-        </div>
-        <div class="project-card">
-            <h2>UrbanRoll Bike Sharing SQL Analysis</h2>
-            <div class="project-stack-box">SQL (BigQuery), Data Analysis, Business Insights, Data Visualization Concepts</div>
-            <h3>Project Description:</h3>
-            <ul>
-                <li>Analyzed 15,000+ bike-sharing rides using SQL to uncover commuting patterns, rider behavior, and station imbalance.</li>
-                <li>Identified peak usage hours, subscriber vs. casual trends, and monthly user growth to generate business insights.</li>
-                <li>Provided data-driven recommendations for bike rebalancing, targeted promotions, and user retention strategies.</li>
-                <li>This project demonstrates strong SQL querying, analytical thinking, and real-world problem solving.</li>
-            </ul>
-            <a href="https://github.com/mayurofficial-tech/urbanroll-sql-analysis" class="github-link">
-                <svg viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256c0 110.5 71.5 204.3 170.9 237.5 12.5 2.3 17.1-5.4 17.1-12.1 0-6.1-.2-22.1-.3-43.4-69.5 15.1-84.1-33.5-84.1-33.5-11.4-28.8-27.8-36.5-27.8-36.5-22.7-15.5 1.7-15.2 1.7-15.2 25.1 1.8 38.3 25.8 38.3 25.8 22.3 38.2 58.5 27.2 72.8 20.8 2.3-16.1 8.7-27.2 15.8-33.5-55.5-6.3-113.9-27.8-113.9-123.5 0-27.3 9.8-49.6 25.8-67.1-2.6-6.3-11.2-31.6 2.4-65.9 0 0 21.1-6.8 69.1 25.7a239.2 239.2 0 01125.8 0c48-32.5 69.1-25.7 69.1-25.7 13.6 34.3 5 59.6 2.4 65.9 16 17.5 25.8 39.8 25.8 67.1 0 95.9-58.5 117.1-114.2 123.3 8.9 7.7 16.8 22.9 16.8 46.2 0 33.4-.3 60.4-.3 68.6 0 6.8 4.6 14.7 17.3 12.1C424.5 460.2 496 366.5 496 256 496 119 385 8 248 8z"/></svg>
-                View on GitHub
-            </a>
-        </div>
+    <!-- Scrollable Content -->
+    <main class="flex-grow overflow-y-auto scroll-container px-4">
+        <div class="max-w-4xl mx-auto py-6 space-y-8">
+            
+            <!-- Project: Titanic -->
+            <div class="project-card bg-white rounded-3xl p-8 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Python</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">NumPy</span>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-blue-600 mb-4 leading-tight">
+                            Titanic Dataset Cleaning & Analysis
+                        </h2>
+                        <div class="space-y-4">
+                            <p class="font-bold text-slate-800 uppercase text-xs tracking-wider">Project Description:</p>
+                            <ul class="space-y-3 text-slate-600 text-base">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Cleaned and preprocessed raw data using Pandas and NumPy.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Handled missing values and corrected data types for robust modeling.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Performed exploratory data analysis to identify significant survival trends.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/4">
+                        <a href="https://github.com/mayurofficial-tech/titanic-data-analysis" class="btn-github text-white flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold shadow-lg">
+                            <i class="fa-brands fa-github text-lg"></i>
+                            <span>View Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    </div> <div class="footer-wrapper">
-        <a href="index.html" class="back-home">← Back to Home</a>
-    </div>
-</div>
+            <!-- Project: Retail Sales -->
+            <div class="project-card bg-white rounded-3xl p-8 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Microsoft Excel</span>
+                            <span class="tag">Regression</span>
+                            <span class="tag">Dashboards</span>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-blue-600 mb-4 leading-tight">
+                            Retail Business Sales Analysis
+                        </h2>
+                        <div class="space-y-4">
+                            <p class="font-bold text-slate-800 uppercase text-xs tracking-wider">Project Description:</p>
+                            <ul class="space-y-3 text-slate-600 text-base">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Performed end-to-end retail sales data analysis using advanced Excel techniques.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Built interactive dashboards using Pivot Tables and dynamic charts for KPIs.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Conducted regression and what-if analysis to support business decision-making.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/4">
+                        <a href="https://github.com/mayurofficial-tech/Retail-Business-Sales-Analysis-Excel" class="btn-github text-white flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold shadow-lg">
+                            <i class="fa-brands fa-github text-lg"></i>
+                            <span>View Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: BigBasket -->
+            <div class="project-card bg-white rounded-3xl p-8 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Python</span>
+                            <span class="tag">Excel</span>
+                            <span class="tag">Product Analytics</span>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-blue-600 mb-4 leading-tight">
+                            BigBasket Product Analytics Dashboard
+                        </h2>
+                        <div class="space-y-4">
+                            <p class="font-bold text-slate-800 uppercase text-xs tracking-wider">Project Description:</p>
+                            <ul class="space-y-3 text-slate-600 text-base">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Created a visual dashboard featuring dynamic pivots, KPIs, and slicers.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Automated data cleaning workflows utilizing <b>Python methods</b>.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Developed insights on pricing strategies, discount impacts, and ratings.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/4">
+                        <a href="https://github.com/mayurofficial-tech/bigbasket-product-analytics-dashboard" class="btn-github text-white flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold shadow-lg">
+                            <i class="fa-brands fa-github text-lg"></i>
+                            <span>View Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: UrbanRoll -->
+            <div class="project-card bg-white rounded-3xl p-8 md:p-10 mb-8">
+                <div class="flex flex-col md:flex-row justify-between gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">SQL (BigQuery)</span>
+                            <span class="tag">Business Intelligence</span>
+                            <span class="tag">Strategy</span>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-blue-600 mb-4 leading-tight">
+                            UrbanRoll Bike Sharing SQL Analysis
+                        </h2>
+                        <div class="space-y-4">
+                            <p class="font-bold text-slate-800 uppercase text-xs tracking-wider">Project Description:</p>
+                            <ul class="space-y-3 text-slate-600 text-base">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Analyzed 15,000+ rides using SQL to uncover patterns and station imbalances.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Identified peak hours and user growth trends for business strategy optimization.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check check-icon mt-1"></i>
+                                    <span>Provided data-driven recommendations for rebalancing and retention.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/4">
+                        <a href="https://github.com/mayurofficial-tech/urbanroll-sql-analysis" class="btn-github text-white flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold shadow-lg">
+                            <i class="fa-brands fa-github text-lg"></i>
+                            <span>View Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Fixed Footer -->
+    <footer class="w-full py-6 text-center flex-shrink-0 bg-white/50 border-t border-slate-200">
+        <a href="index.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors font-bold uppercase text-xs tracking-widest">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Home
+        </a>
+    </footer>
 
 </body>
-
 </html>
-
-
-
-
