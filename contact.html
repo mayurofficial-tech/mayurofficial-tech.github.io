@@ -4,224 +4,186 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Mayur Makwana</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-    :root {
-        --bg-main: #f3f4f6;
-        --text-dark: #111827;
-        --text-gray: #4b5563;
-        --accent: #2563eb; 
-        --white: #ffffff;
-        --linkedin-blue: #0077B5;
-        --transition: all 0.3s ease;
-        --warning-red: #dc2626; /* Original color, now removed from use */
-        --success-green: #10b981; 
-    }
-    
-    * {
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-    }
+:root {
+    --bg-main: #f3f4f6;
+    --text-dark: #111827;
+    --text-gray: #4b5563;
+    --accent: #2563eb; 
+    --white: #ffffff;
+    --linkedin-blue: #0077B5;
+    --transition: all 0.3s ease;
+}
 
-    body {
-        margin: 0;
-        min-height: 100vh;
-        background-color: var(--bg-main);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 60px 20px;
-    }
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-    .container {
-        width: 100%;
-        max-width: 600px;
-        text-align: center;
-    }
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+}
 
-    /* Page Header */
-    .page-header {
-        display: inline-block;
-        border: 2px solid var(--text-dark);
-        padding: 10px 30px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        font-size: 16px;
-        border-radius: 50px;
-        margin-bottom: 50px;
-        text-transform: uppercase;
-        color: var(--text-dark);
-    }
-    
-    /* Contact Card Styling */
-    .contact-card {
-        background: var(--white);
-        border-radius: 12px;
-        padding: 40px 30px;
-        margin-bottom: 40px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
 
-    .contact-card h2 {
-        font-size: 24px;
-        color: var(--text-dark);
-        margin-bottom: 25px;
-        font-weight: 800;
-    }
-    
-    .contact-item {
-        margin-bottom: 30px; /* Increased margin for better separation */
-    }
+.page-header {
+    display: inline-block;
+    border: 2px solid var(--text-dark);
+    padding: 10px 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 16px;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
 
-    .contact-item h3 {
-        font-size: 16px;
-        color: var(--text-gray);
-        font-weight: 600;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-    }
+.contact-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 40px 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
 
-    .contact-item p, .contact-item a { /* Apply styling to anchor tag inside contact-item */
-        font-size: 20px;
-        color: var(--text-dark);
-        font-weight: 700;
-        margin: 0;
-        text-decoration: none; /* Remove underline by default */
-        transition: color 0.3s ease;
-    }
-    
-    .contact-item a:hover {
-        color: var(--accent);
-        text-decoration: underline;
-    }
+.contact-card h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
 
-    /* --- CTA Buttons Styling --- */
-    .send-email-btn, .social-link-btn {
-        display: inline-flex;
-        align-items: center;
-        padding: 12px 25px;
-        color: var(--white);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 700;
-        transition: var(--transition);
-        font-size: 15px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
+.contact-item {
+    margin-bottom: 25px;
+}
 
-    /* Primary Email Button */
-    .send-email-btn {
-        background: var(--accent);
-        margin-top: 30px; /* Space above the first button */
-        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-    }
+.contact-item h3 {
+    font-size: 15px;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
 
-    .send-email-btn:hover {
-        background: #1d4ed8;
-        transform: translateY(-3px);
-    }
+.contact-item a,
+.contact-item p {
+    font-size: 18px;
+    color: var(--text-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
 
-    .send-email-btn svg {
-        fill: var(--white);
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-    }
-    
-    /* New LinkedIn Button */
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+/* Buttons */
+.send-email-btn,
+.social-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+
+.send-email-btn {
+    background: var(--accent);
+}
+
+.send-email-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.social-link-btn {
+    background: var(--text-dark);
+}
+
+.social-link-btn:hover {
+    background: var(--linkedin-blue);
+    transform: translateY(-2px);
+}
+
+.back-home {
+    margin-top: 40px;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-home:hover {
+    color: var(--accent);
+}
+
+@media (max-width:600px){
+    .send-email-btn,
     .social-link-btn {
-        background: var(--text-dark);
-        margin-top: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 100%;
     }
-
-    .social-link-btn:hover {
-        background: var(--linkedin-blue);
-        transform: translateY(-3px);
-    }
-    
-    .social-link-btn svg {
-        fill: var(--white);
-        width: 18px;
-        height: 18px;
-        margin-right: 8px;
-    }
-
-    /* Back to Home Link */
-    .back-home {
-        margin-top: 50px;
-        color: var(--text-gray);
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-        padding: 10px 0;
-    }
-
-    .back-home:hover {
-        color: var(--accent);
-    }
-
-    @media (max-width: 600px) {
-        .page-header {
-            font-size: 14px;
-            padding: 8px 20px;
-        }
-        .contact-card {
-            padding: 30px 20px;
-        }
-        .send-email-btn, .social-link-btn {
-            width: 100%;
-            justify-content: center;
-        }
-    }
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-    <div class="page-header">CONTACT ME</div>
 
-    <div class="contact-card">
-        <h2>I'm excited to hear from you!</h2>
+<div class="page-header">CONTACT ME</div>
 
-        <div class="contact-item">
-            <h3>Email Address</h3>
-            <!-- Updated this link to show the intended email address clearly -->
-            <a href="mailto:makwana.mayur.official@gmail.com">makwana.mayur.official@gmail.com</a>
-        </div>
+<div class="contact-card">
 
-        <div class="contact-item">
-            <h3>Mobile Number</h3>
-            <p>+91 8200662776</p>
-        </div>
-        
-        <!-- Primary CTA Button: Uses Gmail Composition URL without "Opens Gmail" text -->
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=makwana.mayur.official@gmail.com&su=Inquiry%20from%20Website&body=Hello%20Mayur,%0A%0AI%20am%20writing%20to%20you%20regarding%20[reason%20for%20contact].%20Please%20replace%20this%20text%20with%20your%20message.%0A%0ASincerely,%0A[Your%20Name%20and%20Email%20Address]" 
-           target="_blank" 
-           class="send-email-btn">
-            <!-- Mail Icon SVG -->
-            <svg viewBox="0 0 512 512">
-                <path d="M490.6 86.2H21.4C9.6 86.2 0 95.8 0 107.6v296.8c0 11.8 9.6 21.4 21.4 21.4h469.2c11.8 0 21.4-9.6 21.4-21.4V107.6c0-11.8-9.6-21.4-21.4-21.4zM471.9 128L256 295.5 40.1 128h431.8zm18.7 259.9L379.7 268.3 490.6 157.4v229.5zM256 322.2L40.1 144.5l-18.7 18.7v229.5L132.3 268.3 256 379.7l123.7-111.4 111.4 111.4V157.4L256 322.2z"/>
-            </svg>
-            Send Email Now
-        </a>
-        
-        <!-- Secondary CTA Button: LinkedIn -->
-        <a href="https://www.linkedin.com/in/mayur-makwana-8761862a8" target="_blank" class="social-link-btn">
-             <!-- LinkedIn Icon SVG -->
-            <svg viewBox="0 0 448 512">
-                <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 01107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
-            </svg>
-            Connect on LinkedIn
-        </a>
-    </div>
+<h2>I'm excited to hear from you!</h2>
 
-    <a href="index.html" class="back-home">← Back to Home</a>
+<div class="contact-item">
+<h3>Email Address</h3>
+<a href="mailto:makwana.mayur.official@gmail.com">
+makwana.mayur.official@gmail.com
+</a>
 </div>
-<!-- No more modal or associated JavaScript -->
+
+<div class="contact-item">
+<h3>Mobile Number</h3>
+<p>+91 8200662776</p>
+</div>
+
+<!-- Smart Email Button -->
+<a href="mailto:makwana.mayur.official@gmail.com?subject=Inquiry%20from%20Website&body=Hello%20Mayur,%0A%0AI%20am%20writing%20to%20you%20regarding%20[reason].%0A%0ASincerely,%0A[Your%20Name]"
+onclick="if(!/Mobi|Android|iPhone/i.test(navigator.userAgent)){
+window.open('https://mail.google.com/mail/?view=cm&fs=1&to=makwana.mayur.official@gmail.com','_blank');
+return false;}"
+class="send-email-btn">
+Send Email Now
+</a>
+
+<!-- LinkedIn -->
+<br>
+<a href="https://www.linkedin.com/in/mayur-makwana-8761862a8" target="_blank" class="social-link-btn">
+Connect on LinkedIn
+</a>
+
+</div>
+
+<a href="index.html" class="back-home">← Back to Home</a>
+
+</div>
 
 </body>
 </html>
